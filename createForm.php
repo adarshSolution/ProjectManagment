@@ -2,7 +2,7 @@
      
     require 'database.php';
  
-    if ( !empty($_POST)) {
+    if ( !empty($_POST)) {              
          
         $postfields = serialize( $_POST );
                    

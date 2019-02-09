@@ -1,30 +1,15 @@
 <?php 
 
 include 'database.php';
-
 $pdo = Database::connect();
 $sql = 'SELECT * FROM `ed_docs_requests_tpl` WHERE `project_id` = '.$_GET['project_id'].'';
 foreach ($pdo->query($sql) as $row) {
-                            echo '<tr>';
-                            echo '<td>'. print_r(unserialize( $row['form_fields'] )) . '</td>';
-                            echo '</tr>';
 
-    //             $chkbox = $_POST['chk'];
-				// $bus = $_POST['bus'];
-				// $day = $_POST['day'];
-				// $month = $_POST['month'];
-				// $mob = $_POST['mob'];
-				// $type = $_POST['type'];
-				// $BX_NAME=$_POST['BX_NAME'];
-
-
+		$projectName = $row['title'];
+		$project_id = $row['project_id'];
+		$postFields = unserialize( $row['form_fields'] );
+   
                    }
-
-
-                   
-
-
-
  ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -38,29 +23,23 @@ foreach ($pdo->query($sql) as $row) {
 
 
         <form action="" class="register">
-           <h1>project id =<?php echo $_GET['project_id']; ?>
-           Customer Information</h1>
-			<?php if(isset($_POST)==true && empty($_POST)==false): 
-				$chkbox = $_POST['chk'];
+           
+			<?php 
+				$chkbox = $postFields['chk'];
 				
-				$BX_NAME=$_POST['BX_NAME'];
+				$BX_NAME=$postFields['BX_NAME'];
 			?>
 			<fieldset class="row1">
-                <legend>Customer  Information</legend>
+                <h1>Project managment System</h1>
 				<p>
-                    <label>Customer Name 
+                    <label>Project Name * 
                     </label>
-                    <input name="bus" type="text" readonly="readonly" value="<?php echo $bus ?>"/>
-                    <label>Date
+                    <input name="form_title" value='<?php echo $projectName; ?>' type="text" required="required"/>
+                </p>
+                <p>
+                    <label>Project Id 
                     </label>
-					<input type="text" readonly="readonly" class="small" value="<?php echo $day ?>"/>
-					<input type="text" readonly="readonly" class="small" value="<?php echo $month ?>"/>
-					<input type="text" readonly="readonly" class="small" value="2013"/>
-				</p>
-               <p>
-                    <label>Mobile
-                    </label>
-                    <input name="mob" type="text" readonly="readonly" value="<?php echo $mob ?>"/>
+                    <input name="project_id" value='<?php echo $project_id; ?>' type="text" required="required"/>
                 </p>
 				<div class="clear"></div>
             </fieldset>
@@ -76,7 +55,6 @@ foreach ($pdo->query($sql) as $row) {
 									<?php echo $a+1; ?>
 								</td>
 								<td>
-									<label>Name</label>
 									<input type="text" readonly="readonly" name="BX_NAME[$a]" value="<?php echo $BX_NAME[$a]; ?>">
 								</td>
 								<td>
@@ -100,12 +78,12 @@ foreach ($pdo->query($sql) as $row) {
                 </p>
 				<div class="clear"></div>
             </fieldset>
-		<?php else: ?>
-		<fieldset class="row1">
+		
+		<!-- <fieldset class="row1">
 			<legend>Sorry</legend>
 			 <p>Some things went wrong please try again.</p>
-		</fieldset>
-		<?php endif; ?>
+		</fieldset> -->
+		
 			<div class="clear"></div>
         </form>
     </body>
