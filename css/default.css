@@ -237,3 +237,52 @@ p.agreement label{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.droppable {
+  width: 100px;
+  height: 100px;
+  background: grey;
+  font-size: 15pt;
+  font-family: Helvetical, Arial, sans-serif;
+  color: white;
+  line-height: 100px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.draggable {
+  width: 100px;
+  height: 100px;
+  background: green;
+}
+
+.placeholder {
+  background: red;
+}
+
+

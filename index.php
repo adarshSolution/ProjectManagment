@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
         <script type="text/javascript" src="js/script.js"></script> 
     </head>
+
     <body>    
         
             <form action='createForm.php' class="register"  method='POST' enctype='multipart/form-data'>
@@ -78,6 +79,14 @@
         
     </body>
     <!-- Start of StatCounter Code for Default Guide -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
+    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+ 
+    <script type="text/javascript">
+      $('tbody').sortable();
+    </script>
 <script type="text/javascript">
 var sc_project=9046834; 
 var sc_invisible=1; 
@@ -95,27 +104,3 @@ src="http://c.statcounter.com/9046834/0/ec55ba17/1/"
 alt="free hit counter"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
 </html>
-
-
-
-
-
-
-a:4:{s:10:"form_title";s:6:"asdasd";s:10:"project_id";s:2:"12";s:3:"chk";a:3:{i:0;s:2:"on";i:1;s:2:"on";i:2;s:2:"on";}s:7:"BX_NAME";a:3:{i:0;s:8:"Passport";i:1;s:13:"Election card";i:2;s:9:"Pass Book";}}
-
-
-
-Array ( 
-[form_title] => asdasd
-[project_id] => 12 
-[chk] => Array ( 
-                [0] => on 
-                [1] => on 
-                [2] => on 
-                )
-[BX_NAME] => Array ( 
-            [0] => Passport 
-            [1] => Election card 
-            [2] => Pass Book 
-                   ) 
-)
