@@ -1,1 +1,4 @@
 ALTER TABLE `project_files` ADD `uploaded_by` INT(11) NULL DEFAULT NULL AFTER `project_id`;
+
+
+When storing files: form title should be stored in description for each files, uploaded_by is user with id 50000 This is special user created into database so always insert this value.
