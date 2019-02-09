@@ -17,12 +17,12 @@
                 <p>
                     <label>Project Name * 
                     </label>
-                    <input name="form_title" value='title' type="text" required="required"/>
+                    <input name="form_title" value='' type="text" required="required"/>
                 </p>
                 <p>
                     <label>Project Id 
                     </label>
-                    <input name="project_id" value='title' type="text" required="required"/>
+                    <input name="project_id" value='' type="text" required="required"/>
                 </p>
                 <div class="clear"></div>
             </fieldset>
