@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'database.php';
 $pdo = Database::connect();
@@ -8,8 +8,12 @@ foreach ($pdo->query($sql) as $row) {
 		$projectName = $row['title'];
 		$project_id = $row['project_id'];
 		$postFields = unserialize( $row['form_fields'] );
-   
+
                    }
+
+	if(isset($_POST('submit'))){
+		echo "hello";
+	}
  ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -19,25 +23,25 @@ foreach ($pdo->query($sql) as $row) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
     </head>
-    <body> 
+    <body>
 
 
-        <form action="" class="register">
-           
-			<?php 
+        <form  method="POST" class="register">
+
+			<?php
 				$chkbox = $postFields['chk'];
-				
+
 				$BX_NAME=$postFields['BX_NAME'];
 			?>
 			<fieldset class="row1">
                 <h1>Project managment System</h1>
 				<p>
-                    <label>Project Name * 
+                    <label>Project Name *
                     </label>
                     <input name="form_title" value='<?php echo $projectName; ?>' type="text" required="required"/>
                 </p>
                 <p>
-                    <label>Project Id 
+                    <label>Project Id
                     </label>
                     <input name="project_id" value='<?php echo $project_id; ?>' type="text" required="required"/>
                 </p>
@@ -45,7 +49,7 @@ foreach ($pdo->query($sql) as $row) {
             </fieldset>
             <fieldset class="row2">
                 <legend>Document Details
-                </legend>				
+                </legend>
                 <table id="dataTable" class="form" border="1">
 					<tbody>
 					<?php foreach($BX_NAME as $a => $b){ ?>
@@ -59,7 +63,7 @@ foreach ($pdo->query($sql) as $row) {
 								</td>
 								<td>
                             <label for="BX_gender">File</label>
-                            <input type="file" name="fileUpload[]">
+                            <input type="file" name="fileUpload[]" >
                          </td>
 							</p>
 						</tr>
@@ -68,30 +72,30 @@ foreach ($pdo->query($sql) as $row) {
                 </table>
 				<div class="clear"></div>
             </fieldset>
-           
+
             <fieldset class="row5">
                 <legend>Terms and Mailing</legend>
                 <p>
-					<input class="submit" type="button" value="Submit form &raquo;" />
+					<input class="submit" type="submit" name="submit"  />
 					<a class="submit" href="index.html" type="button"> Clear data <a/>
-					
+
                 </p>
 				<div class="clear"></div>
             </fieldset>
-		
+
 		<!-- <fieldset class="row1">
 			<legend>Sorry</legend>
 			 <p>Some things went wrong please try again.</p>
 		</fieldset> -->
-		
+
 			<div class="clear"></div>
         </form>
     </body>
 	<!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
-var sc_project=9046834; 
-var sc_invisible=1; 
-var sc_security="ec55ba17"; 
+var sc_project=9046834;
+var sc_invisible=1;
+var sc_security="ec55ba17";
 var scJsHost = (("https:" == document.location.protocol) ?
 "https://secure." : "http://www.");
 document.write("<sc"+"ript type='text/javascript' src='" +
