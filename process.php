@@ -27,7 +27,7 @@ foreach ($pdo->query($sql) as $row) {
 													$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 													$sql = "INSERT INTO project_files (file_name,description,file_size,created_at,project_id,uploaded_by) values(?,?,?,?,?,?)";
 													$q = $pdo->prepare($sql);
-													$q->execute(array($newName,'',$size,$date,$project_id,''));
+													$q->execute(array($newName,'',$size,$date,$project_id,'50000'));
 													Database::disconnect();
 
 									  }
