@@ -34,13 +34,7 @@ foreach ($pdo->query($sql) as $row) {
               }
  ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <title>Dynamic Form Processing with PHP | Tech Stream</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" type="text/css" href="css/default.css"/>
-    </head>
+<?php include 'layouts/header.php'; ?>
     <body>
 
 
@@ -53,28 +47,27 @@ foreach ($pdo->query($sql) as $row) {
 			?>
 			<fieldset class="row1">
                 <h1>Project managment System</h1>
-				<p>
-                    <label>Project Name *
-                    </label>
-                    <input name="form_title" value='<?php echo $projectName; ?>' type="text" required="required"/>
-                </p>
-                <p>
-                    <label>Project Id
-                    </label>
-                    <input name="project_id" value='<?php echo $project_id; ?>' type="text" required="required"/>
-                </p>
+				<div class="form-group">
+                    <label class="control-label">Project Name *</label>
+                    <input name="form_title" class="form-control" value='<?php echo $projectName; ?>' type="text" required="required"/>
+                </div>
+                <div class="form-group ">
+                    <label class="control-label">Project Id</label>
+                    <input name="project_id" class="form-control"  value='<?php echo $project_id; ?>' type="text" required="required"/>
+                </div>
 				<div class="clear"></div>
             </fieldset>
             <fieldset class="row2">
-                <legend>Document Details
+                <legend>Upload your documents here
                 </legend>
                 <table id="dataTable" class="form" border="1">
 					<tbody>
 					<?php foreach($BX_NAME as $a => $b){ ?>
 						<tr>
 							<p>
-								<td >
-									<?php echo $a+1; ?>
+								<td><i class="fa fa-arrows-alt"></i></td>
+								<td>
+									&nbsp;
 								</td>
 								<td>
 									<input type="text" readonly="readonly" name="BX_NAME[$a]" value="<?php echo $BX_NAME[$a]; ?>">
@@ -92,10 +85,10 @@ foreach ($pdo->query($sql) as $row) {
             </fieldset>
 
             <fieldset class="row5">
-                <legend>Terms and Mailing</legend>
+                
                 <p>
-					<input class="submit" type="submit" name="submit"  />
-					<a class="submit" href="index.html" type="button"> Clear data <a/>
+					<input class="submit" type="submit" name="submit" value="Submit"  />
+				
 
                 </p>
 				<div class="clear"></div>
@@ -110,20 +103,4 @@ foreach ($pdo->query($sql) as $row) {
         </form>
     </body>
 	<!-- Start of StatCounter Code for Default Guide -->
-<script type="text/javascript">
-var sc_project=9046834;
-var sc_invisible=1;
-var sc_security="ec55ba17";
-var scJsHost = (("https:" == document.location.protocol) ?
-"https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><a title="free hit
-counter" href="http://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="http://c.statcounter.com/9046834/0/ec55ba17/1/"
-alt="free hit counter"></a></div></noscript>
-<!-- End of StatCounter Code for Default Guide -->
-</html>
+<?php include 'layouts/footer.php'; ?>
