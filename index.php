@@ -4,7 +4,7 @@
 
             <h1>Project managment System</h1>
             <fieldset class="row1">
-                <legend>Information</legend>
+                <legend>Add new Form</legend>
                 <div class="form-group ">
                     <label class="control-label">Project Name *
                     </label>
@@ -39,7 +39,7 @@
                          <td>
                             <div class="form-group ">
                             <label class="control-label " for="BX_file">File</label>
-                            <input class="form-control" type="file" class="small"  name="fileUpload[]">
+                            <input  type="file" class="small"  name="fileUpload[]">
                         </div>
                          </td>
 
@@ -68,7 +68,7 @@
                 <div class="clear"></div>
             </fieldset>
             <input class="submit" type="submit" value="Confirm &raquo;" />
-            <a class="submit" href="http://techstream.org/Web-Development/PHP/Dynamic-Form-Processing-with-PHP"/>Back to Techstream Article</a>
+            
 
             <div class="clear"></div>
         </form>

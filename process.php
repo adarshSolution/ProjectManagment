@@ -32,7 +32,7 @@ foreach ($pdo->query($sql) as $row) {
 													Database::disconnect();
 											  }
 												if($inserted){
-													$sMsg = "Successfully Added";
+													$sMsg = "File Uploded Successfully";
 												}else{
 														$sMsg = "failed Please try again";
 												}
@@ -52,7 +52,8 @@ foreach ($pdo->query($sql) as $row) {
 			?>
 			<fieldset class="row1">
                 <h1>Project managment System</h1>
-<<<<<<< HEAD
+
+<?php if(isset($sMsg)){echo "<div class='alert alert-success'><strong>Success! </strong> ".$sMsg.".</div";}?>
 				<div class="form-group">
                     <label class="control-label">Project Name *</label>
                     <input name="form_title" class="form-control" value='<?php echo $projectName; ?>' type="text" required="required"/>
@@ -61,19 +62,6 @@ foreach ($pdo->query($sql) as $row) {
                     <label class="control-label">Project Id</label>
                     <input name="project_id" class="form-control"  value='<?php echo $project_id; ?>' type="text" required="required"/>
                 </div>
-=======
-								<?php if(isset($sMsg)){echo "<h5 style='text-align: center;'>".$sMsg."</h5>";}?>
-				<p>
-                    <label>Project Name *
-                    </label>
-                    <input name="form_title" value='<?php echo $projectName; ?>' type="text" required="required"/>
-                </p>
-                <p>
-                    <label>Project Id
-                    </label>
-                    <input name="project_id" value='<?php echo $project_id; ?>' type="text" required="required"/>
-                </p>
->>>>>>> 5182ed3582e984e626ac7a6f6dbd4777b4897ce4
 				<div class="clear"></div>
             </fieldset>
             <fieldset class="row2">
