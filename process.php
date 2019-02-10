@@ -22,15 +22,20 @@ foreach ($pdo->query($sql) as $row) {
 											    $path = $target_path . $newName;
 													$date = date('Y-m-d H:i:s');
 													$size = $_FILES['fileUpload']['size'][$key];
+												  $name =	$_POST['name'][$key];
 												  move_uploaded_file($_FILES['fileUpload']['tmp_name'][$key], $path);
 
 													$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 													$sql = "INSERT INTO project_files (file_name,description,file_size,created_at,project_id,uploaded_by) values(?,?,?,?,?,?)";
 													$q = $pdo->prepare($sql);
-													$q->execute(array($newName,'',$size,$date,$project_id,''));
+												  $inserted =	$q->execute(array($newName,$name,$size,$date,$project_id,'50000'));
 													Database::disconnect();
-
-									  }
+											  }
+												if($inserted){
+													$sMsg = "Successfully Added";
+												}else{
+														$sMsg = "failed Please try again";
+												}
               }
  ?>
 
@@ -47,6 +52,7 @@ foreach ($pdo->query($sql) as $row) {
 			?>
 			<fieldset class="row1">
                 <h1>Project managment System</h1>
+<<<<<<< HEAD
 				<div class="form-group">
                     <label class="control-label">Project Name *</label>
                     <input name="form_title" class="form-control" value='<?php echo $projectName; ?>' type="text" required="required"/>
@@ -55,6 +61,19 @@ foreach ($pdo->query($sql) as $row) {
                     <label class="control-label">Project Id</label>
                     <input name="project_id" class="form-control"  value='<?php echo $project_id; ?>' type="text" required="required"/>
                 </div>
+=======
+								<?php if(isset($sMsg)){echo "<h5 style='text-align: center;'>".$sMsg."</h5>";}?>
+				<p>
+                    <label>Project Name *
+                    </label>
+                    <input name="form_title" value='<?php echo $projectName; ?>' type="text" required="required"/>
+                </p>
+                <p>
+                    <label>Project Id
+                    </label>
+                    <input name="project_id" value='<?php echo $project_id; ?>' type="text" required="required"/>
+                </p>
+>>>>>>> 5182ed3582e984e626ac7a6f6dbd4777b4897ce4
 				<div class="clear"></div>
             </fieldset>
             <fieldset class="row2">
@@ -70,7 +89,7 @@ foreach ($pdo->query($sql) as $row) {
 									&nbsp;
 								</td>
 								<td>
-									<input type="text" readonly="readonly" name="BX_NAME[$a]" value="<?php echo $BX_NAME[$a]; ?>">
+									<input type="text" readonly="readonly" name="name[]" value="<?php echo $BX_NAME[$a]; ?>">
 								</td>
 								<td>
                             <label for="BX_gender">File</label>
