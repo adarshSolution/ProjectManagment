@@ -11,9 +11,27 @@ foreach ($pdo->query($sql) as $row) {
 
                    }
 
-	if(isset($_POST('submit'))){
-		echo "hello";
-	}
+							if (!empty($_POST)) {
+                 		$form_title = $_POST['form_title'];
+								 			$project_id = $_POST['project_id'];
+                      $fileUpload =  $_FILES['fileUpload'];
+											$target_path = "upload/";
+
+											foreach ($_FILES['fileUpload']['name'] as $key=>$value) {
+                        	$newName = time().'-'.$_FILES['fileUpload']['name'][$key];
+											    $path = $target_path . $newName;
+													$date = date('Y-m-d H:i:s');
+													$size = $_FILES['fileUpload']['size'][$key];
+												  move_uploaded_file($_FILES['fileUpload']['tmp_name'][$key], $path);
+
+													$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+													$sql = "INSERT INTO project_files (file_name,description,file_size,created_at,project_id,uploaded_by) values(?,?,?,?,?,?)";
+													$q = $pdo->prepare($sql);
+													$q->execute(array($newName,'',$size,$date,$project_id,''));
+													Database::disconnect();
+
+									  }
+              }
  ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -26,7 +44,7 @@ foreach ($pdo->query($sql) as $row) {
     <body>
 
 
-        <form  method="POST" class="register">
+        <form  method="POST" class="register" enctype="multipart/form-data">
 
 			<?php
 				$chkbox = $postFields['chk'];

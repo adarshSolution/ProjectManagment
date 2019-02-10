@@ -6,8 +6,14 @@
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
         <script type="text/javascript" src="js/script.js"></script>
     </head>
+<<<<<<< HEAD
     <body>
 
+=======
+
+    <body>    
+        
+>>>>>>> 8dab821c965f5257ec4f1532aa44aa50263f17be
             <form action='createForm.php' class="register"  method='POST' enctype='multipart/form-data'>
 
             <h1>Project managment System</h1>
@@ -16,12 +22,12 @@
                 <p>
                     <label>Project Name *
                     </label>
-                    <input name="form_title" value='title' type="text" required="required"/>
+                    <input name="form_title" value='' type="text" required="required"/>
                 </p>
                 <p>
                     <label>Project Id
                     </label>
-                    <input name="project_id" value='title' type="text" required="required"/>
+                    <input name="project_id" value='' type="text" required="required"/>
                 </p>
                 <div class="clear"></div>
             </fieldset>
@@ -78,6 +84,14 @@
 
     </body>
     <!-- Start of StatCounter Code for Default Guide -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
+    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+ 
+    <script type="text/javascript">
+      $('tbody').sortable();
+    </script>
 <script type="text/javascript">
 var sc_project=9046834;
 var sc_invisible=1;
@@ -94,6 +108,7 @@ class="statcounter"
 src="http://c.statcounter.com/9046834/0/ec55ba17/1/"
 alt="free hit counter"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
+<<<<<<< HEAD
 </html>
 
 
@@ -104,3 +119,6 @@ git pull origin master
 git add .
 git commit -m "My changes"
 git push origin master
+=======
+</html>
+>>>>>>> 8dab821c965f5257ec4f1532aa44aa50263f17be
