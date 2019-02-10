@@ -22,15 +22,20 @@ foreach ($pdo->query($sql) as $row) {
 											    $path = $target_path . $newName;
 													$date = date('Y-m-d H:i:s');
 													$size = $_FILES['fileUpload']['size'][$key];
+												  $name =	$_POST['name'][$key];
 												  move_uploaded_file($_FILES['fileUpload']['tmp_name'][$key], $path);
 
 													$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 													$sql = "INSERT INTO project_files (file_name,description,file_size,created_at,project_id,uploaded_by) values(?,?,?,?,?,?)";
 													$q = $pdo->prepare($sql);
-													$q->execute(array($newName,'',$size,$date,$project_id,'50000'));
+												  $inserted =	$q->execute(array($newName,$name,$size,$date,$project_id,'50000'));
 													Database::disconnect();
-
-									  }
+											  }
+												if($inserted){
+													$sMsg = "Successfully Added";
+												}else{
+														$sMsg = "failed Please try again";
+												}
               }
  ?>
 
@@ -53,6 +58,7 @@ foreach ($pdo->query($sql) as $row) {
 			?>
 			<fieldset class="row1">
                 <h1>Project managment System</h1>
+								<?php if(isset($sMsg)){echo "<h5 style='text-align: center;'>".$sMsg."</h5>";}?>
 				<p>
                     <label>Project Name *
                     </label>
@@ -77,7 +83,7 @@ foreach ($pdo->query($sql) as $row) {
 									<?php echo $a+1; ?>
 								</td>
 								<td>
-									<input type="text" readonly="readonly" name="BX_NAME[$a]" value="<?php echo $BX_NAME[$a]; ?>">
+									<input type="text" readonly="readonly" name="name[]" value="<?php echo $BX_NAME[$a]; ?>">
 								</td>
 								<td>
                             <label for="BX_gender">File</label>
